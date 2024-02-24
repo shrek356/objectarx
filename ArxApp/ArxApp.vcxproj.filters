@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{469446a0-65c0-4283-a723-10e30de8967b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\Document">
+      <UniqueIdentifier>{953b02e5-16af-49ae-8ddf-3e39cc0b121a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\Entity">
+      <UniqueIdentifier>{c8a81702-c6fc-412a-9ddf-05d2cae80aed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\Geometry">
+      <UniqueIdentifier>{12f2de22-f58e-4687-8b7c-061250042dac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\Others">
+      <UniqueIdentifier>{fed5a77a-fc22-4f37-b62f-6e152cc349df}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="StdAfx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DocData.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="acrxEntryPoint.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ArxApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CDwgDatabaseUtil.cpp">
+      <Filter>Common\Document</Filter>
+    </ClCompile>
+    <ClCompile Include="CGePointUtil.cpp">
+      <Filter>Common\Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="CConvertUtil.cpp">
+      <Filter>Common\Others</Filter>
+    </ClCompile>
+    <ClCompile Include="CLineUtil.cpp">
+      <Filter>Common\Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="CMathUtil.cpp">
+      <Filter>Common\Others</Filter>
+    </ClCompile>
+    <ClCompile Include="CEntityUtil.cpp">
+      <Filter>Common\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="CEllipseUtil.cpp">
+      <Filter>Common\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="CArcUtil.cpp">
+      <Filter>Common\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="CCircleUtil.cpp">
+      <Filter>Common\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="CPolylineUtil.cpp">
+      <Filter>Common\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="CSplineUtil.cpp">
+      <Filter>Common\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="CRegionUtil.cpp">
+      <Filter>Common\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="CTextUtil.cpp">
+      <Filter>Common\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="CHatchUtil.cpp">
+      <Filter>Common\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="CDimensionUtil.cpp">
+      <Filter>Common\Entity</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="StdAfx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DocData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CDwgDatabaseUtil.h">
+      <Filter>Common\Document</Filter>
+    </ClInclude>
+    <ClInclude Include="CGePointUtil.h">
+      <Filter>Common\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="CConvertUtil.h">
+      <Filter>Common\Others</Filter>
+    </ClInclude>
+    <ClInclude Include="CLineUtil.h">
+      <Filter>Common\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="CMathUtil.h">
+      <Filter>Common\Others</Filter>
+    </ClInclude>
+    <ClInclude Include="CEntityUtil.h">
+      <Filter>Common\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="CEllipseUtil.h">
+      <Filter>Common\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="CArcUtil.h">
+      <Filter>Common\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="CCircleUtil.h">
+      <Filter>Common\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="CPolylineUtil.h">
+      <Filter>Common\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="CSplineUtil.h">
+      <Filter>Common\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="CRegionUtil.h">
+      <Filter>Common\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="CTextUtil.h">
+      <Filter>Common\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="CHatchUtil.h">
+      <Filter>Common\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="CDimensionUtil.h">
+      <Filter>Common\Entity</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ArxApp.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
