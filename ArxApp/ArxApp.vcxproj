@@ -90,6 +90,7 @@
     <ClCompile Include="acrxEntryPoint.cpp" />
     <ClCompile Include="ArxApp.cpp" />
     <ClCompile Include="CArcUtil.cpp" />
+    <ClCompile Include="CBlockUtil.cpp" />
     <ClCompile Include="CCircleUtil.cpp" />
     <ClCompile Include="CConvertUtil.cpp" />
     <ClCompile Include="CDimensionUtil.cpp" />
@@ -112,6 +113,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CArcUtil.h" />
+    <ClInclude Include="CBlockUtil.h" />
     <ClInclude Include="CCircleUtil.h" />
     <ClInclude Include="CConvertUtil.h" />
     <ClInclude Include="CDimensionUtil.h" />

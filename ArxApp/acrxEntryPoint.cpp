@@ -63,28 +63,50 @@ public:
 	}
 
 
-	static void SbsArxapp() {
-		ads_name ss;
-		int rt = acedSSGet(nullptr, nullptr, nullptr,nullptr, ss);
-		AcDbObjectIdArray object_ids;
-		if(rt==RTNORM)
+	static void SbsArxapp()
+	{
+		//auto line_id=CLineUtil::Add(AcGePoint3d::kOrigin, AcGePoint3d(1000, 1000, 0));
+
+		auto ids = CDwgDatabaseUtil::GetEntityId();
+
+
+
+		AcArray<AcDbLine*> p_lines = { 0 };
+		AcArray<AcDbBlockReference*> p_refs{ 0 };
+		for(const auto e:ids)
 		{
-			Adesk::Int32 length;
-			acedSSLength(ss, &length);
-			for(int i=0;i<length;i++)
+			AcDbEntity* p_ent = nullptr;
+			acdbOpenObject(p_ent, e, AcDb::kForRead);
+			if(p_ent->isKindOf(AcDbLine::desc()))
 			{
-				ads_name ent;
-				acedSSName(ss, i, ent);
-				AcDbObjectId obj_id;
-				acdbGetObjectId(obj_id, ent);
-				object_ids.append(obj_id);
-
+				p_lines.append(static_cast<AcDbLine*>(p_ent));
 			}
-			
+			else if(p_ent->isKindOf(AcDbBlockReference::desc()))
+			{
+				p_refs.append(static_cast<AcDbBlockReference*>(p_ent));
+			}
+			else
+			{
+				acutPrintf(L"not a type of ref and line");
+			}
+			p_ent->close();
 		}
-		acedSSFree(ss);
-		CHatchUtil::Add(object_ids,L"BRICK",25);
 
+		for(const auto ref:p_refs)
+		{
+			AcGePoint3dArray intersected_pts;
+			for(const auto line:p_lines)
+			{
+				CBlockUtil::CheckIntersectionBetweenBlockAndEntity(ref, line, intersected_pts,false);
+			}
+			for(auto center_point :intersected_pts)
+			{
+				auto e_id=CCircleUtil::Add(center_point, 5);
+				CEntityUtil::SetColor(e_id, 4);
+			}
+		}
+
+		
 
 
 	}

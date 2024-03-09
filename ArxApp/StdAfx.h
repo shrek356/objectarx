@@ -92,6 +92,8 @@
 #include  "CRegionUtil.h"
 #include "CTextUtil.h"
 #include  "CHatchUtil.h"
+#include "CDimensionUtil.h"
+#include  "CBlockUtil.h"
 //-----------------------------------------------------------------------------        
 //-----------------------------------------------------------------------------
 #include "DocData.h" //- Your document specific data class holder

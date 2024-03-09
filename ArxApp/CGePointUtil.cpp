@@ -17,3 +17,24 @@ AcGePoint2d CGePointUtil::GetMiddlePoint(const AcGePoint2d& start_point, const A
 		(start_point.y + end_point.y) / 2
 	};
 }
+
+
+AcGePoint3d CGePointUtil::PolarPoint(const AcGePoint3d& base_point, double angle, double length)
+{
+	return AcGePoint3d{
+		base_point.x+length*cos(angle),
+		base_point.y+length*sin(angle),
+		base_point.z
+	};
+}
+
+
+
+AcGePoint3d CGePointUtil::RelativePoint(const AcGePoint3d& base_point, double x, double y)
+{
+	return AcGePoint3d{
+		base_point.x+x,
+		base_point.y+y,
+		base_point.z
+	};
+}

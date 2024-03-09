@@ -87,6 +87,9 @@
     <ClCompile Include="CDimensionUtil.cpp">
       <Filter>Common\Entity</Filter>
     </ClCompile>
+    <ClCompile Include="CBlockUtil.cpp">
+      <Filter>Common\Entity</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StdAfx.h">
@@ -141,6 +144,9 @@
       <Filter>Common\Entity</Filter>
     </ClInclude>
     <ClInclude Include="CDimensionUtil.h">
+      <Filter>Common\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="CBlockUtil.h">
       <Filter>Common\Entity</Filter>
     </ClInclude>
   </ItemGroup>
