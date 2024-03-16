@@ -94,6 +94,7 @@
 #include  "CHatchUtil.h"
 #include "CDimensionUtil.h"
 #include  "CBlockUtil.h"
+#include "CLayerUtil.h"
 //-----------------------------------------------------------------------------        
 //-----------------------------------------------------------------------------
 #include "DocData.h" //- Your document specific data class holder

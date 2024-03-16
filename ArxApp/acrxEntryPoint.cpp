@@ -30,11 +30,11 @@
 
 //-----------------------------------------------------------------------------
 //----- ObjectARX EntryPoint
-class CArxAppApp : public AcRxArxApp {
+class CArxApp : public AcRxArxApp {
 
 public:
-	CArxAppApp() : AcRxArxApp() {}
-	virtual ~CArxAppApp() {	};
+	CArxApp() : AcRxArxApp() {}
+	virtual ~CArxApp() {	};
 
 	AcRx::AppRetCode On_kInitAppMsg(void* pkt) override {
 		// TODO: Load dependencies here
@@ -65,56 +65,105 @@ public:
 
 	static void SbsArxapp()
 	{
-		//auto line_id=CLineUtil::Add(AcGePoint3d::kOrigin, AcGePoint3d(1000, 1000, 0));
 
-		auto ids = CDwgDatabaseUtil::GetEntityId();
-
-
-
-		AcArray<AcDbLine*> p_lines = { 0 };
-		AcArray<AcDbBlockReference*> p_refs{ 0 };
-		for(const auto e:ids)
-		{
-			AcDbEntity* p_ent = nullptr;
-			acdbOpenObject(p_ent, e, AcDb::kForRead);
-			if(p_ent->isKindOf(AcDbLine::desc()))
-			{
-				p_lines.append(static_cast<AcDbLine*>(p_ent));
-			}
-			else if(p_ent->isKindOf(AcDbBlockReference::desc()))
-			{
-				p_refs.append(static_cast<AcDbBlockReference*>(p_ent));
-			}
-			else
-			{
-				acutPrintf(L"not a type of ref and line");
-			}
-			p_ent->close();
-		}
-
-		for(const auto ref:p_refs)
-		{
-			AcGePoint3dArray intersected_pts;
-			for(const auto line:p_lines)
-			{
-				CBlockUtil::CheckIntersectionBetweenBlockAndEntity(ref, line, intersected_pts,false);
-			}
-			for(auto center_point :intersected_pts)
-			{
-				auto e_id=CCircleUtil::Add(center_point, 5);
-				CEntityUtil::SetColor(e_id, 4);
-			}
-		}
+		CLayerUtil::Add(L"layer_test");
+		CLayerUtil::Add(L"layer_test1", 32);
+		CLayerUtil::Add(L"layer_test2", 32);
+		CLayerUtil::Add(L"layer_test3", 200);
+		CLayerUtil::Add(L"layer_test4", 255);
+		CLayerUtil::Add(L"layer_test41", 255);
+		CLayerUtil::Add(L"layer_test42", 255);
+		CLayerUtil::Add(L"layer_test43", 255);
+		CLayerUtil::Add(L"layer_test44", 255);
+		CLayerUtil::Add(L"layer_test45", 255);
+		CLayerUtil::Add(L"layer_test46", 255);
 
 		
-
+		
 
 	}
 
 };
 
 //-----------------------------------------------------------------------------a
-IMPLEMENT_ARX_ENTRYPOINT(CArxAppApp)
+IMPLEMENT_ARX_ENTRYPOINT(CArxApp) 
 
-ACED_ARXCOMMAND_ENTRY_AUTO(CArxAppApp, Sbs, Arxapp, ASW, ACRX_CMD_MODAL, NULL)
+ACED_ARXCOMMAND_ENTRY_AUTO(CArxApp, Sbs, Arxapp, ASW, ACRX_CMD_MODAL, NULL)
 
+
+
+static void intesrsection_checking_test()
+{
+
+	auto ids = CDwgDatabaseUtil::GetEntityId();
+
+
+
+	AcArray<AcDbLine*> p_lines = { 0 };
+	AcArray<AcDbBlockReference*> p_refs{ 0 };
+	for (const auto e : ids)
+	{
+		AcDbEntity* p_ent = nullptr;
+		acdbOpenObject(p_ent, e, AcDb::kForRead);
+		if (p_ent->isKindOf(AcDbLine::desc()))
+		{
+			p_lines.append(static_cast<AcDbLine*>(p_ent));
+		}
+		else if (p_ent->isKindOf(AcDbBlockReference::desc()))
+		{
+			p_refs.append(static_cast<AcDbBlockReference*>(p_ent));
+		}
+		else if (p_ent->isKindOf(AcDbCircle::desc()))
+		{
+			acutPrintf(L"\n it is a circle");
+		}
+		
+			
+		
+		p_ent->close();
+		continue;
+	}
+
+	for (const auto ref : p_refs)
+	{
+		AcGePoint3dArray intersected_pts;
+		for (const auto line : p_lines)
+		{
+			CBlockUtil::CheckIntersectionBetweenBlockAndEntity(ref, line, intersected_pts, false);
+		}
+		for (auto center_point : intersected_pts)
+		{
+			auto e_id = CCircleUtil::Add(center_point, 5);
+			CEntityUtil::SetColor(e_id, 4);
+		}
+	}
+
+}
+
+static void ExportLayerInfo()
+{
+	AcDbObjectIdArray layer_ids;
+	CLayerUtil::GetLayerList(layer_ids);
+
+	std::vector<CString> lines;
+	for(auto const& id:layer_ids)
+	{
+		AcDbLayerTableRecord* p_layer_tbl_rcd = nullptr;
+		if(acdbOpenObject(p_layer_tbl_rcd,id,AcDb::kForRead)==Acad::eOk)
+		{
+			std::vector<CString> layer_infos;
+			TCHAR* sz_layer_name;
+			p_layer_tbl_rcd->getName(sz_layer_name);
+			layer_infos.push_back(sz_layer_name);
+			acutDelString(sz_layer_name);
+
+
+			AcCmColor color = p_layer_tbl_rcd->color();
+			layer_infos.push_back(CConvertUtil::ToString(color.colorIndex()));
+
+
+
+
+		}
+	}
+}

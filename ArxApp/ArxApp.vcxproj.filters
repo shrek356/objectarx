@@ -28,6 +28,9 @@
     <Filter Include="Common\Others">
       <UniqueIdentifier>{fed5a77a-fc22-4f37-b62f-6e152cc349df}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Common\SymbolTable">
+      <UniqueIdentifier>{972b8f56-2f6f-4546-a2eb-2c65f80ffa60}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="StdAfx.cpp">
@@ -90,6 +93,15 @@
     <ClCompile Include="CBlockUtil.cpp">
       <Filter>Common\Entity</Filter>
     </ClCompile>
+    <ClCompile Include="CLayerUtil.cpp">
+      <Filter>Common\SymbolTable</Filter>
+    </ClCompile>
+    <ClCompile Include="CStringUtil.cpp">
+      <Filter>Common\Others</Filter>
+    </ClCompile>
+    <ClCompile Include="CTextFileUtil.cpp">
+      <Filter>Common\Others</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StdAfx.h">
@@ -148,6 +160,15 @@
     </ClInclude>
     <ClInclude Include="CBlockUtil.h">
       <Filter>Common\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="CLayerUtil.h">
+      <Filter>Common\SymbolTable</Filter>
+    </ClInclude>
+    <ClInclude Include="CStringUtil.h">
+      <Filter>Common\Others</Filter>
+    </ClInclude>
+    <ClInclude Include="CTextFileUtil.h">
+      <Filter>Common\Others</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
